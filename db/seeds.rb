@@ -28,3 +28,4 @@ product = Product.create(
 				{ name: 'Juguetes', stock: 20, photo: 'picture', price: 2500, category: Category.find_by_name("INFANTIL")},
 			]
 		)
+
