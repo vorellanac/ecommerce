@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
 
-  resources :products
+
+  devise_for :users, controllers: { registrations: "users/registrations" }
+
+  root 'products#index'
   
-  root 'product#new'
-  
-  get 'cart/show'
+  resources :products, only: [:index, :show] do
+  	resources :orders, only: [:create]  	
+  end	 
+
+  resources :carts, only: [:show]
+ 
 
   
 

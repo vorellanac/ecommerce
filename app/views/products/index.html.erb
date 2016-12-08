@@ -1,0 +1,42 @@
+<!-- index products -->
+<h1>Listado de productos</h1>
+
+<%= link_to 'Ver Carro', current_user.last_cart, class:'btn btn-info' %>
+<!-- muestra cabecera -->
+<table class="table" width="50%">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Stock</th>
+			<th>Foto</th>
+			<th>Precio</th>
+		</tr>
+	</thead>
+<!-- recorre los productos -->
+	<tbody>
+		<% @products.each do |product| %>
+		<tr>
+			<td><%= product.name %></td>
+			<td><%= product.stock %></td>
+			<td><%= product.photo %></td>
+			<td><%= product.price %></td>
+			<!-- boton agregar al carro -->
+			<td>
+			<%= form_for([product, Order.new]) do |f| %>
+				<div class="actions">
+					<%= f.submit 'Agregar al carro' %>
+				</div>
+			<% end %>
+						
+			</td>
+		</tr>
+		<%end%>
+	</tbody>
+
+</table>
+
+<hr>
+
+
+
+

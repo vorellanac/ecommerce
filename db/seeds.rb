@@ -15,6 +15,7 @@ category = Category.create(
 				{ name: 'JARDIN'},
 				{ name: 'MODA'},
 				{ name: 'INFANTIL'}
+				{ name: 'TOOLS'}
 			]
 		)
 # seed product
@@ -26,6 +27,7 @@ product = Product.create(
 				{ name: 'Hamacas', stock: 30, photo: 'picture', price: 23000, category: Category.find_by_name("JARDIN")},
 				{ name: 'Cinturon', stock: 20, photo: 'picture', price: 2500, category: Category.find_by_name("MODA")},
 				{ name: 'Juguetes', stock: 20, photo: 'picture', price: 2500, category: Category.find_by_name("INFANTIL")},
+				{ name: 'Herramientas', stock: 50, photo: 'picture', price: 7500, category: Category.find_by_name("TOOLS")},
 			]
 		)
 
