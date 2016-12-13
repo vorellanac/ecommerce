@@ -1,2 +1,39 @@
-<h1>Cart#show</h1>
-<p>Find me in app/views/cart/show.html.erb</p>
+<h1>Carro de Compra</h1>
+<p style="color:green">¡Has agregado a tú carro, los siguientes productos!</p>
+
+<table width="50%">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Referencia</th>
+			<th>Precio</th>
+		</tr>
+	</thead>
+
+<table width="50%">
+	<% @orders.each do  |orders| %>
+	<tr>
+		<td><%= orders.product.name %></td>
+		<td><%= orders.product.photo %></td>
+		<td><%= orders.product.price %></td>
+	</tr>
+	<%end%>
+	
+</table>
+<hr>
+<table>
+	<th>
+		<td style="color:green">Total de tú compra: <%= @cart.total %></td>
+	</th>	
+</table>
+
+<%= form_for([@cart, Payment.new]) do |f| %>
+<p>
+	<%= f.submit 'Pagar' %>
+</p>
+<%end%>
+
+
+
+
+

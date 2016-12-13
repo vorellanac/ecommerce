@@ -40,6 +40,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= current_user.email %></li>
+          <li><%= link_to 'Ver Carro', current_user.last_cart, class:'btn btn-info' %></li>
           <li> <a href="<%= destroy_user_session_path %>" data-method='delete'>
           Salir
           </a></li>

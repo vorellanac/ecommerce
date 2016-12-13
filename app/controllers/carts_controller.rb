@@ -11,7 +11,7 @@ class CartsController < ApplicationController
   	@orders = @cart.orders
   end
 
-  def add
+  def last_cart
+    
   end
-
 end

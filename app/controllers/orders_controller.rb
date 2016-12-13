@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   	order = Order.new(product: product)
 
   	cart = current_user.carts.last
-  	cart.orders << order
+    cart.orders << order
 
   	if cart.save
   		redirect_to products_path, notice: '¡El producto fue agregado exitosamente a tú carro!.'
@@ -12,4 +12,10 @@ class OrdersController < ApplicationController
   		redirect_to products_path, notice: '¡Lo sentimos!, El Producto no fue agregado al carro.'
   	end
   end
+
+
+  def last_cart
+    cart = Cart.current_user.last
+  end
+
 end

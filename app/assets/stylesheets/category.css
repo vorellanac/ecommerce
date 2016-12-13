@@ -1,0 +1,107 @@
+$palette-grey: #EFEFEF;
+$palette-yellow: #F0991F;
+$palette-purple: #604671;
+$palette-blue: #007F9A;
+$palette-lime-green: darken(#0fd985, 5%);
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: darken($palette-grey, 25%);
+  background-image: radial-gradient(circle farthest-side at 50% 100%, $palette-grey 0%, transparent 75%);
+  background-size: contain;
+}
+
+$margin: 32px;
+.stage {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  padding: $margin;
+  &:hover > .tile {
+    opacity: 0.5;
+  }
+  
+  .tile {
+    //subtract the sum of space-between
+    position: relative;
+    flex: 1 1 calc(33.333% - 96px);
+    padding: ($margin * 2) $margin;
+    margin: $margin / 2;
+    background: darken($palette-grey, 75%);
+    cursor: pointer;
+    box-shadow: 5px 5px 0 0 transparentize(darken($palette-grey, 75%), 0.75);
+    transform-origin: 50% 100% 0;
+    transition-property: transform box-shadow;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+    &:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      box-shadow: none;
+    }
+    > h1 {
+      font-weight: 700;
+      color: $palette-grey;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.tile {
+  &:after,
+  &::after {
+    content: '';
+    position: absolute;
+    top: .5em;
+    left: .5em;
+    height: calc(100% - .5em);
+    width: calc(100% - .5em);
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+  &.profiles {
+    background-color: darken($palette-blue, 12.5%);
+    background-image: radial-gradient(circle farthest-corner at 100% 0, $palette-blue, transparent);
+        &:after,
+    &::after {
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/911489/svg_rocket.svg);
+      background-position: 50% 70%;
+      background-size: 230px;
+    }
+  }
+  &.teams {
+    background-color: darken($palette-lime-green, 15%);
+    background-image: radial-gradient(circle farthest-corner at 100% 0, $palette-lime-green, transparent);
+    &:after,
+    &::after {
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/911489/svg_group.svg);
+    }
+  }
+  &.business {
+    background-color: darken($palette-purple, 15%);
+    background-image: radial-gradient(circle farthest-corner at 100% 0, $palette-purple, transparent);
+        &:after,
+    &::after {
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/911489/svg_trend.svg);
+      background-size: 180px;
+    }
+  }
+  &.accreditation {
+    background-color: darken($palette-yellow, 15%);
+    background-image: radial-gradient(circle farthest-corner at 100% 0, lighten($palette-yellow, 15%), transparent);
+    &:after,
+    &::after {
+    }
+  }
+}

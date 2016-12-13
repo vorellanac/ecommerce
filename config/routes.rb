@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  # get 'payments/create'
+
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   root 'products#index'
@@ -9,7 +11,9 @@ Rails.application.routes.draw do
   	resources :orders, only: [:create]  	
   end	 
 
-  resources :carts, only: [:show]
+  resources :carts, only: [:show] do
+  	resources :payments, only: [:create]
+  end
  
 
   

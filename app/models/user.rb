@@ -11,11 +11,11 @@ class User < ApplicationRecord
   after_create :create_cart
 
   def create_cart
-  	self.carts.build(state:'open')
-  	self.save 
+  	carts.build(state:'open')
+  	save 
   end
 
 	def last_cart
-		self.carts.last	
+		carts.last	
 	end
 end
